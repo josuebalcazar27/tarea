@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+este formulario pide al usuario un numero y luego calcula su factorial-->
+<html>
+    <head>
+        <title>FORMULARIO 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="procesar5.jsp" method="POST">
+            Nota: <input type="text" name="txtnumero" value="" onkeypress="return solonumeros(event)" onpaste="return false">
+            <br>
+            <input type="submit" value="Mensaje">
+        </form>
+        <script>
+            
+            function solonumeros(e) {
+                key=e.keyCode || e.which;
+                teclado = String.fromCharCode(key);
+                numeros = "0123456789";
+                especiales = "8-37-38-46";
+                teclado_especial = false;
+                
+                for (var i in especiales) {
+                    if (key === especiales[i]) {
+                        teclado_especial = true;
+                    }
+                }
+                if (numeros.indexOf(teclado)===-1 && !teclado_especial) {
+            alert("Solo puede ingresar numeros");      
+            return false;
+                    }
+            }
+            
+        </script>
+    </body>
+</html>
